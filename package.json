@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/daniel-234/user-authentication-api/issues"
   },
-  "homepage": "https://github.com/daniel-234/user-authentication-api#readme"
+  "homepage": "https://github.com/daniel-234/user-authentication-api#readme",
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
 }
