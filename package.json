@@ -1,0 +1,25 @@
+{
+  "name": "user-authentication-api",
+  "version": "1.0.0",
+  "description": "API for protecting routes with JWT authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel-234/user-authentication-api.git"
+  },
+  "keywords": [
+    "api",
+    "jest",
+    "authentication",
+    "jwt"
+  ],
+  "author": "Daniele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniel-234/user-authentication-api/issues"
+  },
+  "homepage": "https://github.com/daniel-234/user-authentication-api#readme"
+}
