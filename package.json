@@ -28,6 +28,7 @@
   "homepage": "https://github.com/daniel-234/user-authentication-api#readme",
   "devDependencies": {
     "babel-eslint": "^8.2.5",
+    "dotenv": "^6.0.0",
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-babel": "^5.1.0",

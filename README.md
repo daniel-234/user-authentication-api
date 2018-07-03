@@ -7,11 +7,11 @@ The title of this repository has been taken by [a project](https://github.com/ch
 
 ## Getting Started
 
+TODO
 
 ## Built With
 
 - [Node](https://reactjs.org/) - A JavaScript library for building user interfaces
-
 
 ## Author
 
@@ -28,3 +28,4 @@ This project is intended for learning purposes only. Much of it will reproduce c
 
 ## Acknowledgments
 
+- [Twilio Blog - Working with Environment Variables in Node.js](https://www.twilio.com/blog/2017/08/working-with-environment-variables-in-node-js.html)
