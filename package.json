@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint \"**/*.{js,jsx}\"",
     "format": "prettier --write \"**/*.{js,jsx}\"",
     "precommit": "lint-staged"
@@ -36,6 +36,7 @@
     "eslint-plugin-prettier": "^2.6.1",
     "express": "^4.16.3",
     "husky": "^0.14.3",
+    "jest": "^23.3.0",
     "lint-staged": "^7.2.0",
     "prettier": "^1.13.7",
     "webpack": "^4.14.0",
@@ -46,5 +47,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
