@@ -40,3 +40,4 @@ This project is intended for learning purposes only. Much of it will reproduce c
 ## Acknowledgments
 
 - [Twilio Blog - Working with Environment Variables in Node.js](https://www.twilio.com/blog/2017/08/working-with-environment-variables-in-node-js.html)
+- [How to test Express.js with Jest and SuperTest](http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/)
