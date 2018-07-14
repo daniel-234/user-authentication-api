@@ -1,5 +1,4 @@
-// import app from server.js
-const app = require('./server.js');
+import app from './server';
 
 // Load variables from the .env file if not in production.
 if (process.env.NODE_ENV !== 'production') {

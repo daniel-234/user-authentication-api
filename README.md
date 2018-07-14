@@ -21,8 +21,23 @@ TODO
 
 ## Notes
 
+### About this API project
 This API has been built based on these repositories: [User Authentication API](https://github.com/chenkie/user-authentication-api), [REST and GraphQL API Design in Node v2](https://github.com/FrontendMasters/api-design-node-v2) and [Testing Workshop](https://github.com/kentcdodds/testing-workshop).
 The full courses based on these repositories can be found on Frontend Masters.
+
+### Backend Apps with Webpack
+Webpack, even in this basic configuration, showed this warning message when run.
+```
+WARNING in ./node_modules/express/lib/view.js 81:13-25
+Critical dependency: the request of a dependency is an expression
+@ ./node_modules/express/lib/application.js
+@ ./node_modules/express/lib/express.js
+@ ./node_modules/express/index.js
+@ ./src/server.js
+@ ./src/index.js
+```
+The solution suggested by [this](https://github.com/webpack/webpack/issues/196) issue was to use the package `webpack-node-externals` to avoid bundling `node-modules`. 
+It's inspired by [this article](https://jlongster.com/Backend-Apps-with-Webpack--Part-I).
 
 ## About the app
 
@@ -41,3 +56,4 @@ This project is intended for learning purposes only. Much of it will reproduce c
 
 - [Twilio Blog - Working with Environment Variables in Node.js](https://www.twilio.com/blog/2017/08/working-with-environment-variables-in-node-js.html)
 - [How to test Express.js with Jest and SuperTest](http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/)
+- [Backend apps with Webpack](https://jlongster.com/Backend-Apps-with-Webpack--Part-I)
