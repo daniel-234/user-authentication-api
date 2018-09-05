@@ -16,6 +16,8 @@ describe('Test the root paths', () => {
 
   test('The instructor path is working', async () => {
     const response = await request(app).get('/api/instructor');
-    expect(response.text).toBe('this is the intructor root end point');
+    expect(response.text).toBe(
+      'This is the instructor root end point after using controllers! Test passed!'
+    );
   });
 });
