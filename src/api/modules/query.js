@@ -68,11 +68,53 @@ export const createOne = model => (req, res, next) => {
     .catch(error => next(error));
 };
 
-export const updateOne = model => async (req, res, next) => {};
+export const updateOne = model => async (req, res, next) => {
+  /*
+   * You get the resource named `docFromId` that is attached 
+   * to the request from the `params` function. 
+   * You get the `update` from the body.
+   * And then you pass it in to `controllers.updateOne` to
+   * satisfy it (its signature says it takes a document to
+   * update and an update and that it does nothing).
+   */
+  const docToUpdate = req.docFromId;
+  const update = req.body;
 
-export const deleteOne = model => (req, res, next) => {};
+  return controllers
+    .updateOne(docToUpdate, update)
+    .then(doc => res.status(201).json(doc))
+    .catch(error => next(error));
+};
 
-export const getOne = model => (req, res, next) => {};
+/*
+ * Delete has no payload, you just need an `id`. You 
+ * basically do the same thing you did with `updateOne`.
+ * That means that the `params` function is going to find
+ * the document for the given resource and to attach it to
+ * the request.
+ * So, as I already have it, I am going to pass it to the 
+ * request. 
+ */
+export const deleteOne = model => (req, res, next) => {
+  return controllers
+    .deleteOne(req.docFromId)
+    .then(doc => res.status(201).json(doc))
+    .catch(error => next(error));
+};
+
+export const getOne = model => (req, res, next) => {
+  /*
+   * What we need to update is literally already here. 
+   * We are passing it to the controllers in case we need
+   * to do something else with it, but this is an extra
+   * operation that is not fundamental here. 
+   */
+
+  return controllers
+    .getOne(rec.docFromId)
+    .then(doc => res.status(200).json(doc))
+    .catch(error => next(error));
+};
 
 export const getAll = model => (req, res, next) => {
   return controllers
@@ -81,7 +123,29 @@ export const getAll = model => (req, res, next) => {
     .catch(error => next(error));
 };
 
-export const findByParam = model => (req, res, next, id) => {};
+/*
+ * The fourth argument of the inner function is whatever was
+ * on the parameter that you subscribed for. 
+ * 
+ * This function runs first and then, if we find the resource,
+ * when it calls `next` it sends the control over to the next
+ * thing. 
+ */
+export const findByParam = model => (req, res, next, id) => {
+  return controllers
+    .findByParam(model, id)
+    .then(doc => {
+      if (!doc) {
+        next(new Error('Not Found Error'));
+      } else {
+        req.docFromId = doc;
+        next();
+      }
+    })
+    .catch(error => {
+      next(error);
+    });
+};
 
 export const generateControllers = (model, overrides = {}) => {
   const defaults = {
