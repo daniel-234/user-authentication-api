@@ -1,6 +1,9 @@
-// const testData = { message: 'hello' };
-const testData =
-  'This is the instructor root end point after using controllers! Test passed!';
+const testData = {
+  message:
+    'This is the instructor root end point after using controllers! Test passed!'
+};
+// const testData =
+//   'This is the instructor root end point after using controllers! Test passed!';
 
 /*
  * These generic methods inside the `controllers` object
@@ -74,7 +77,7 @@ export const getOne = model => (req, res, next) => {};
 export const getAll = model => (req, res, next) => {
   return controllers
     .getAll(model)
-    .then(docs => res.send(docs))
+    .then(docs => res.json(docs))
     .catch(error => next(error));
 };
 
