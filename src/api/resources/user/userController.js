@@ -1,6 +1,6 @@
 import { generateControllers } from '../../modules/query';
 
 // Declare Instructor as an empty object until we define its Model.
-const Instructor = {};
+const User = {};
 
-export default generateControllers(Instructor);
+export default generateControllers(User);

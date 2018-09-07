@@ -1,6 +1,5 @@
 const testData = {
-  message:
-    'This is the instructor root end point after using controllers! Test passed!'
+  message: 'Root end point'
 };
 // const testData =
 //   'This is the instructor root end point after using controllers! Test passed!';
