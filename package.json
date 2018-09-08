@@ -63,5 +63,8 @@
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3"
   }
 }
