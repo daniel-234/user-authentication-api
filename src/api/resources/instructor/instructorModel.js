@@ -14,7 +14,13 @@ import mongoose from 'mongoose';
  * for the types.
  * 
  */
-export const schema = {};
+export const schema = {
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  }
+};
 
 /*
  * This is an instance of a `mongoose.Schema`. Using this method,
