@@ -1,8 +1,4 @@
-const testData = {
-  message: 'Root end point'
-};
-// const testData =
-//   'This is the instructor root end point after using controllers! Test passed!';
+import merge from 'lodash.merge';
 
 /*
  * These generic methods inside the `controllers` object
@@ -23,27 +19,63 @@ export const controllers = {
    * to the value of `testData` above.
    */
   createOne(model, body) {
-    return Promise.resolve(testData);
+    /*
+     * Return the value of calling `Model.create` with body as argument.
+     * The method call `Model.create` saves the documents passed as
+     * argument to the database, triggering the `save()` middleware
+     * for every call. 
+     * 
+     * >> See docs: https://mongoosejs.com/docs/api.html#model_Model.create
+     * 
+     * 
+     * The method call `model.create` returns a Promise. 
+     * So this function `createOne` returns that Promise, which means it can 
+     * trigger other functionalities asynchronously, as it is resolved, when 
+     * this function is called.
+     * 
+     */
+    return model.create(body);
   },
 
   updateOne(docToUpdate, update) {
-    return Promise.resolve(testData);
+    const updatedDoc = merge(docToUpdate, update);
+    /*
+     * Call the document middleware function `save` on the returned object. 
+     * 
+     * (We could have also simply called `merge(destinationObj, sourceObj)`,
+     * saving the destination object).
+     * 
+     */
+    return updatedDoc.save();
   },
 
   deleteOne(docToDelete) {
-    return Promise.resolve(testData);
+    /*
+     * Call the document middleware function `remove` on the document
+     * we want to delete (we already have it and pass it as an argument). 
+     * 
+     * >> See docs: https://mongoosejs.com/docs/middleware.html
+     * 
+     */
+    return docToDelete.remove();
   },
 
   getOne(docToGet) {
-    return Promise.resolve(testData);
+    /*
+     * Here we are just passing the Promise object we already have.
+     * 
+     * This step has been introduced just to allow any manipulation on
+     * the document, if needed.
+     */
+    return Promise.resolve(docToGet);
   },
 
   getAll(model) {
-    return Promise.resolve(testData);
+    return model.find({});
   },
 
   findByParam(model, id) {
-    return Promise.resolve(testData);
+    return model.findById(id);
   }
 };
 
@@ -57,8 +89,8 @@ export const controllers = {
  * when it is called from the router where the model is outside of
  * its scope. 
  * 
- * This way we can define controllers in a more general way and make 
- * use of them for every resource without redefining them every time.
+ * Now we can define controllers in a more general way and make use of
+ * them for every resource without redefining them every time.
  */
 export const createOne = model => (req, res, next) => {
   return controllers

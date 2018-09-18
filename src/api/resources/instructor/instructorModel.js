@@ -27,7 +27,7 @@ export const schema = {
  * I'm creating a Mongoose schema for the `schema` object above,
  * that defines some rules.
  */
-const instructorSchema = new mongoose.Schema(schema);
+const instructorSchema = new mongoose.Schema(schema, { timestamps: true });
 
 /*
  * Create a model from the schema defined above.
