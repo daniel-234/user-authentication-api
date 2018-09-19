@@ -6,7 +6,6 @@ import { Instructor } from '../api/resources/instructor/instructorModel';
 
 const dbUrl = `mongodb://localhost/api_design_fe_masters`;
 let db;
-let user;
 
 /*
  * Test the api
@@ -15,7 +14,7 @@ let user;
 beforeAll(async () => {
   mongoose.connect(dbUrl);
   db = mongoose.connection;
-  user = await User.create({ username: 'user1' });
+  const user = await User.create({ username: 'user1' });
   const instructor = await Instructor.create({ username: 'instructor1' });
 });
 
@@ -39,5 +38,29 @@ describe('GET should get all resources', () => {
   test('GET /instructor', async () => {
     const response = await request(app).get('/api/instructor');
     expect(response).toHaveProperty('status', 200);
+  });
+});
+
+describe('POST should create a resource', () => {
+  test('POST /user', async () => {
+    const response = await request(app)
+      .post('/api/user')
+      /*
+       * Sends a JSON post body.
+       * 
+       * >> See documentation of supertest and superagent. 
+       * 
+       * https://github.com/visionmedia/supertest
+       * https://github.com/visionmedia/superagent
+       */
+      .send({ username: 'newUser' });
+    expect(response).toHaveProperty('status', 201);
+  });
+
+  test('POST /instructor', async () => {
+    const response = await request(app)
+      .post('/api/instructor')
+      .send({ username: 'newInstructor' });
+    expect(response).toHaveProperty('status', 201);
   });
 });
