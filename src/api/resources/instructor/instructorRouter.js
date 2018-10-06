@@ -14,4 +14,4 @@ instructorRouter
   .route('/:id')
   .get(instructorController.getOne)
   .put(instructorController.updateOne)
-  .delete(instructorController.createOne);
+  .delete(instructorController.deleteOne);
