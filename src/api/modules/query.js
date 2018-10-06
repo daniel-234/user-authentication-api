@@ -13,11 +13,6 @@ import merge from 'lodash.merge';
  */
 
 export const controllers = {
-  /*
-   * For now there is not a database in place yet, so each one
-   * of these methods is just returning a promise which resolves
-   * to the value of `testData` above.
-   */
   createOne(model, body) {
     /*
      * Return the value of calling `Model.create` with body as argument.

@@ -2,6 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/gheruay34qdkqpe3?svg=true)](https://ci.appveyor.com/project/daniel-234/user-authentication-api)
 [![Build Status](https://travis-ci.org/daniel-234/user-authentication-api.svg?branch=master)](https://travis-ci.org/daniel-234/user-authentication-api)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 This simple application is a side project to create a user authentication API using Express, MongoDB and JSON Web Tokens. 
 We will rebuild [a project](https://github.com/chenkie/user-authentication-api) developed by Ryan Chenkie for a [course](https://frontendmasters.com/courses/secure-auth-jwt/) on JWT on Frontend Masters. 
@@ -34,7 +35,7 @@ Again, you can check its version by typing the following instruction in the term
 
 To install this application you can (fork and) download it and then run the command `npm install` from your terminal. That will install all the needed dependencies.
 
-#### Run the application 
+#### Running the application 
 
 The first thing you need to do is making sure that MongoDB is running in your machine. 
 Type in your terminal: 
