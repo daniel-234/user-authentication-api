@@ -113,3 +113,4 @@ This project is intended for learning purposes only. Much of it will reproduce c
 - [How to test Express.js with Jest and SuperTest](http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/)
 - [Backend apps with Webpack](https://jlongster.com/Backend-Apps-with-Webpack--Part-I)
 - [Adrian Meja - Creating RESTful APIs with NodeJS and MongoDB](https://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/)
+ - [Jest issues - Jest not exiting on successful completion of test suite](https://github.com/facebook/jest/issues/3602)
