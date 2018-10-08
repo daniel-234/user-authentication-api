@@ -3,25 +3,35 @@
  * `REST & GraphQL Design in Node.js`.
  */
 import mongoose from 'mongoose';
+import MongodbMemoryServer from 'mongodb-memory-server';
 import { controllers } from '../query';
 import { Instructor } from '../../resources/instructor/instructorModel';
 
-const dbUrl = `mongodb://localhost/api_design_fe_masters`;
-let db;
+let mongoServer;
+
+/*
+ * Test the api
+ */
+
+// Create a connection to the database before running any test.
+beforeAll(async () => {
+  mongoServer = new MongodbMemoryServer();
+  const mongoUri = await mongoServer.getConnectionString();
+  await mongoose.connect(
+    mongoUri,
+    err => {
+      if (err) console.log(err);
+    }
+  );
+});
+
+// Close the connection and the mongod server after running all tests.
+afterAll(async () => {
+  await mongoose.disconnect();
+  await mongoServer.stop();
+});
 
 describe('Controllers in `query', () => {
-  // Create a connection to the database before running any test.
-  beforeAll(() => {
-    mongoose.connect(dbUrl);
-    db = mongoose.connection;
-  });
-
-  // Drop the database and close the connection after running all tests.
-  afterAll(async () => {
-    await db.dropDatabase();
-    await mongoose.disconnect();
-  });
-
   describe('createOne', () => {
     test('should create a document', async () => {
       const document = await controllers.createOne(Instructor, {

@@ -1,25 +1,30 @@
 import request from 'supertest';
 import app from '../server';
 import mongoose from 'mongoose';
-import { User } from '../api/resources/user/userModel';
-import { Instructor } from '../api/resources/instructor/instructorModel';
+import MongodbMemoryServer from 'mongodb-memory-server';
 
-const dbUrl = `mongodb://localhost/api_design_fe_masters`;
-let db;
+let mongoServer;
 
 /*
  * Test the api
  */
 
+// Create a connection to the database before running any test.
 beforeAll(async () => {
-  mongoose.connect(dbUrl);
-  db = mongoose.connection;
-  const user = await User.create({ username: 'user1' });
-  const instructor = await Instructor.create({ username: 'instructor1' });
+  mongoServer = new MongodbMemoryServer();
+  const mongoUri = await mongoServer.getConnectionString();
+  await mongoose.connect(
+    mongoUri,
+    err => {
+      if (err) console.log(err);
+    }
+  );
 });
 
-afterAll(() => {
-  db.dropDatabase();
+// Close the connection and the mongod server after running all tests.
+afterAll(async () => {
+  await mongoose.disconnect();
+  await mongoServer.stop();
 });
 
 describe('Test the root paths', () => {
