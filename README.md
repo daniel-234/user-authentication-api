@@ -114,3 +114,4 @@ This project is intended for learning purposes only. Much of it will reproduce c
 - [Backend apps with Webpack](https://jlongster.com/Backend-Apps-with-Webpack--Part-I)
 - [Adrian Meja - Creating RESTful APIs with NodeJS and MongoDB](https://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/)
  - [Jest issues - Jest not exiting on successful completion of test suite](https://github.com/facebook/jest/issues/3602)
+ - [Egghead.io - JSON Web Token (JWT) - Authentication with Node.js and Auth0](https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0)
