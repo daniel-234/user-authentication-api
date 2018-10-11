@@ -14,10 +14,6 @@ const dbUrl = `mongodb://localhost/api_design_fe_masters`;
 setupMiddleware(app);
 mongoose.connect(dbUrl);
 
-app.get('/', (req, res) => {
-  res.send('Basic routing setting is ok!');
-});
-
 app.use('/api', restRouter);
 
 // Handle all not defined routes.

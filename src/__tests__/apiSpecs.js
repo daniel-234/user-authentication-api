@@ -27,13 +27,6 @@ afterAll(async () => {
   await mongoServer.stop();
 });
 
-describe('Test the root paths', () => {
-  test('The root path is working', async () => {
-    const response = await request(app).get('/');
-    expect(response.text).toBe('Basic routing setting is ok!');
-  });
-});
-
 describe('GET should get all resources', () => {
   test('GET /user', async () => {
     const response = await request(app).get('/api/user');
