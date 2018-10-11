@@ -1,5 +1,9 @@
-export const authenticate = (req, res) => {
-  const user = req.body.username;
+import jwt from 'jsonwebtoken';
 
-  res.status(200).send(`You logged in with username ${user}`);
+export const authenticate = (req, res, next) => {
+  const token = signToken(req.body.username);
+  res.json({ token });
 };
+
+export const signToken = username =>
+  jwt.sign({ username }, 'mysupersecretkey', { expiresIn: '3 hours' });
