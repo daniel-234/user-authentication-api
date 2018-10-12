@@ -51,7 +51,7 @@ describe('POST should create a resource', () => {
        * https://github.com/visionmedia/supertest
        * https://github.com/visionmedia/superagent
        */
-      .send({ username: 'newUser' });
+      .send({ username: 'newUser', passwordHash: 'ytrewq4321' });
     expect(response).toHaveProperty('status', 201);
   });
 

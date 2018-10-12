@@ -92,9 +92,13 @@ Critical dependency: the request of a dependency is an expression
 The solution suggested by [this](https://github.com/webpack/webpack/issues/196) issue was to use the package `webpack-node-externals` to avoid bundling `node-modules`. 
 It's inspired by [this article](https://jlongster.com/Backend-Apps-with-Webpack--Part-I).
 
-### Server (not responding) issues  
+### Server not updating its responses  
 
-As you modify this app, every time Webpack makes a new build, it saves it in the `dist` folder. If at any time you experience server issues and it seems it has somehow cached values that should be gone, it could be helpful to delete the `dist` folder and rebuild the application. 
+As you modify this app, Webpack makes new builds that it saves it in the `dist` folder. 
+
+If at any time when you query the API its responses seem to be outdated, giving back to you data that you instead modified or changed, it could be helpful to delete the `dist` folder and rebuild the application. 
+
+When a lot of builds cumulate, it can somehow suffer from a cache effect. 
 
 ### Continuous Integration
 

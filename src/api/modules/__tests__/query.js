@@ -5,7 +5,7 @@
 import mongoose from 'mongoose';
 import MongodbMemoryServer from 'mongodb-memory-server';
 import { controllers } from '../query';
-import { Instructor } from '../../resources/instructor/instructorModel';
+import { User } from '../../resources/user/userModel';
 
 let mongoServer;
 
@@ -34,28 +34,30 @@ afterAll(async () => {
 describe('Controllers in `query', () => {
   describe('createOne', () => {
     test('should create a document', async () => {
-      const document = await controllers.createOne(Instructor, {
-        username: 'instructor1'
+      const document = await controllers.createOne(User, {
+        username: 'user1',
+        passwordHash: 'abcd1234'
       });
 
       expect(document.id).toBeDefined();
-      expect(document.username).toEqual('instructor1');
+      expect(document.username).toEqual('user1');
     });
   });
 
   describe('updateOne', () => {
     test('should update a document', async () => {
-      const instructor = await controllers.createOne(Instructor, {
-        username: 'instructor2'
+      const user = await controllers.createOne(User, {
+        username: 'user2',
+        passwordHash: 'abcd1234'
       });
 
-      const newInstructorName = 'newInstructor2';
-      const updatedInstructor = await controllers.updateOne(instructor, {
-        username: newInstructorName
+      const newUserName = 'newUser2';
+      const updatedUser = await controllers.updateOne(user, {
+        username: newUserName
       });
 
-      expect(updatedInstructor.username).toEqual(newInstructorName);
-      expect(updatedInstructor.id).toEqual(instructor.id);
+      expect(updatedUser.username).toEqual(newUserName);
+      expect(updatedUser.id).toEqual(user.id);
     });
   });
 
@@ -68,62 +70,66 @@ describe('Controllers in `query', () => {
         * method `Model.create(docs`), which evaluates to a Promise.
         */
 
-      const instructor = await controllers.createOne(Instructor, {
-        username: 'instructor3'
+      const user = await controllers.createOne(User, {
+        username: 'user3',
+        passwordHash: 'abcd1234'
       });
 
-      const deletedInstructor = await controllers.deleteOne(instructor);
+      const deletedUser = await controllers.deleteOne(user);
 
-      expect(deletedInstructor.id).toEqual(instructor.id);
-      expect(await Instructor.findById(Instructor.id)).toEqual(null);
+      expect(deletedUser.id).toEqual(user.id);
+      expect(await User.findById(User.id)).toEqual(null);
     });
   });
 
   describe('getOne', () => {
     test('should get one document', async () => {
-      const instructor = await controllers.createOne(Instructor, {
-        username: 'instructor3'
+      const user = await controllers.createOne(User, {
+        username: 'user3',
+        passwordHash: 'abcd1234'
       });
 
-      const foundInstructor = await controllers.getOne(instructor);
+      const foundUser = await controllers.getOne(user);
 
-      expect(foundInstructor).toEqual(instructor);
+      expect(foundUser).toEqual(user);
     });
   });
 
   describe('findByParam', () => {
     test('should find a Model by Id', async () => {
-      const instructor = (await controllers.createOne(Instructor, {
-        username: 'instructor4'
+      const user = (await controllers.createOne(User, {
+        username: 'user4',
+        passwordHash: 'abcd1234'
       })).toJSON();
 
-      const foundInstructor = (await controllers.findByParam(
-        Instructor,
-        instructor._id
+      const foundUser = (await controllers.findByParam(
+        User,
+        user._id
       )).toJSON();
 
-      expect(foundInstructor).toEqual(instructor);
+      expect(foundUser).toEqual(user);
     });
   });
 
   describe('getAll', () => {
     test('should get all documents', async () => {
-      const usernames = ['instructor5', 'instructor6', 'instructor7'];
+      const usernames = ['user5', 'user6', 'user7'];
 
-      const instructors = await Promise.all(
+      const users = await Promise.all(
         usernames.map(async username => {
-          const instructor = await controllers.createOne(Instructor, {
-            username
+          const user = await controllers.createOne(User, {
+            username,
+            passwordHash: 'abcd1234'
           });
-          return instructor.toJSON();
+          return user.toJSON();
         })
       );
 
-      const allInstructors = (await controllers.getAll(Instructor)).map(
-        instructor => instructor.toJSON()
+      const allUsers = (await controllers.getAll(User)).map(user =>
+        user.toJSON()
       );
 
-      expect(allInstructors).toHaveLength(7);
+      expect(allUsers).toHaveLength(7);
     });
   });
 });
