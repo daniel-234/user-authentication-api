@@ -8,9 +8,6 @@ import jwt from 'jsonwebtoken';
  * See module `restRouter.js`.
  */
 export const authenticate = (req, res, next) => {
-  /*
-   * The middleware `verifyUser` defined below will
-   */
   const token = signToken(req.user.id);
   res.json({ token });
 };
@@ -48,7 +45,7 @@ export const verifyUser = (req, res, next) => {
 export const signToken = id =>
   jwt.sign(
     { id },
-    // Plain word just for development
+    // Simple secret key just for development purposes.
     'mysupersecretkey',
     { expiresIn: '1h' }
   );

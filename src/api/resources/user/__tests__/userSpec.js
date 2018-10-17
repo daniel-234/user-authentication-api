@@ -9,8 +9,8 @@ describe('User Model', () => {
   });
 
   test('should have passwordHash', () => {
-    expect(schema).toHaveProperty('passwordHash');
-    expect(schema.passwordHash.type).toEqual(String);
-    expect(schema.passwordHash.required).toEqual(true);
+    expect(schema).toHaveProperty('password');
+    expect(schema.password.type).toEqual(String);
+    expect(schema.password.required).toEqual(true);
   });
 });

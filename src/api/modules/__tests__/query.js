@@ -36,7 +36,7 @@ describe('Controllers in `query', () => {
     test('should create a document', async () => {
       const document = await controllers.createOne(User, {
         username: 'user1',
-        passwordHash: 'abcd1234'
+        password: 'abcd1234'
       });
 
       expect(document.id).toBeDefined();
@@ -48,7 +48,7 @@ describe('Controllers in `query', () => {
     test('should update a document', async () => {
       const user = await controllers.createOne(User, {
         username: 'user2',
-        passwordHash: 'abcd1234'
+        password: 'abcd1234'
       });
 
       const newUserName = 'newUser2';
@@ -72,7 +72,7 @@ describe('Controllers in `query', () => {
 
       const user = await controllers.createOne(User, {
         username: 'user3',
-        passwordHash: 'abcd1234'
+        password: 'abcd1234'
       });
 
       const deletedUser = await controllers.deleteOne(user);
@@ -86,7 +86,7 @@ describe('Controllers in `query', () => {
     test('should get one document', async () => {
       const user = await controllers.createOne(User, {
         username: 'user3',
-        passwordHash: 'abcd1234'
+        password: 'abcd1234'
       });
 
       const foundUser = await controllers.getOne(user);
@@ -99,7 +99,7 @@ describe('Controllers in `query', () => {
     test('should find a Model by Id', async () => {
       const user = (await controllers.createOne(User, {
         username: 'user4',
-        passwordHash: 'abcd1234'
+        password: 'abcd1234'
       })).toJSON();
 
       const foundUser = (await controllers.findByParam(
@@ -119,7 +119,7 @@ describe('Controllers in `query', () => {
         usernames.map(async username => {
           const user = await controllers.createOne(User, {
             username,
-            passwordHash: 'abcd1234'
+            password: 'abcd1234'
           });
           return user.toJSON();
         })
