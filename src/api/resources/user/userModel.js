@@ -1,23 +1,45 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
+import { runInNewContext } from 'vm';
 
 // Exported for unit testing purporses in `userSpec.js`.
 export const schema = {
   username: {
     type: String,
-    required: true,
+    required: [true, 'Username required'],
     unique: true
   },
   password: {
     type: String,
-    required: true
+    required: [true, 'Password required']
   }
 };
 
 const userSchema = new mongoose.Schema(schema, { timestamps: true });
 
 /*
- * Hash the password before storing it.
+ * Mongoose Middleware (pre-save hooks). 
+ */
+
+/*
+ * Check if the username is already in the database. 
+ */
+userSchema.pre('save', function(next) {
+  this.constructor.findOne({ username: this.username }, function(err, doc) {
+    if (err) {
+      next(err);
+    }
+    if (doc) {
+      next(
+        new Error('Username already taken. Please, insert a different one.')
+      );
+    }
+    next();
+  });
+});
+
+/*
+ * Call a method to hash the newly inserted password.
  */
 userSchema.pre('save', function(next) {
   if (!this.isModified('password')) {

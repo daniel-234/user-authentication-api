@@ -32,4 +32,4 @@ const instructorSchema = new mongoose.Schema(schema, { timestamps: true });
 /*
  * Create a model from the schema defined above.
  */
-export const Instructor = mongoose.model('instructor', instructorSchema);
+export const Instructor = mongoose.model('Instructor', instructorSchema);

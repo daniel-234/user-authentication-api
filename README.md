@@ -42,7 +42,9 @@ Type in your terminal:
 ```bash
 mongod
 ```
-Then run the app in development mode using hot module reloading by typing `npm run dev` from the command line. The app will be served at `localhost:3001`. 
+Then run the app in development mode using hot module replacement by typing `npm run dev` from the command line. The app will be served at `localhost:3001`. 
+
+To work with the api, navigate to the available routes from there (i.e. `localhost:3001/api/user` to get all users). See below for all available routes. 
 
 ## Available routes
 
@@ -119,3 +121,5 @@ This project is intended for learning purposes only. Much of it will reproduce c
 - [Adrian Meja - Creating RESTful APIs with NodeJS and MongoDB](https://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/)
  - [Jest issues - Jest not exiting on successful completion of test suite](https://github.com/facebook/jest/issues/3602)
  - [Egghead.io - JSON Web Token (JWT) - Authentication with Node.js and Auth0](https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0)
+ - [Stackoverflow - How to query from within Mongoose 'pre-' hook in a Node.js / Express.js app](https://stackoverflow.com/questions/19281680/how-to-query-from-within-mongoose-pre-hook-in-a-node-js-express-app)
+ - [Stackoverflow - Mongoose query callback return](https://stackoverflow.com/questions/39361760/mongoose-query-callback-return)
