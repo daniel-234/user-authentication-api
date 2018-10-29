@@ -7,10 +7,24 @@ import jwt from 'jsonwebtoken';
  * 
  * See module `restRouter.js`.
  */
+
+// *************
+// TODO refactor
+// *************
+// *************
 export const authenticate = (req, res, next) => {
   const token = signToken(req.user.id);
   res.json({ token });
 };
+
+// TODO delete after authenticate refactor.
+export const signToken = id =>
+  jwt.sign(
+    { id },
+    // Simple secret key just for development purposes.
+    'mysupersecretkey',
+    { expiresIn: '1h' }
+  );
 
 /*
  * Verify if username and password are provided (TODO delete this comment later). 
@@ -42,10 +56,23 @@ export const verifyUser = (req, res, next) => {
   next();
 };
 
-export const signToken = id =>
+/* 
+ * Sign a token with claims (assertions) about the entity
+ * for which it was issued (user). 
+ * Do NOT include any sensitive information about that entity.
+ */
+export const createToken = user =>
   jwt.sign(
-    { id },
-    // Simple secret key just for development purposes.
+    {
+      sub: user.id,
+      username: user.username
+    },
+    // *************
+    // TODO refactor
+    // Simple secret key just for initial development.
     'mysupersecretkey',
-    { expiresIn: '1h' }
+    {
+      algorithm: 'HS256',
+      expiresIn: '1h'
+    }
   );

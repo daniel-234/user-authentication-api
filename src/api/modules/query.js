@@ -77,12 +77,12 @@ export const controllers = {
 /*
  * The functions that consume the controllers are closures which
  * take the model and return another function definition. 
- * This way the model is passed to the actual controller when 
- * `generateControllers` is called inside the `instructorController`
- * module with a model as argument.
- * The controller generated this way will be able to use the model 
- * when it is called from the router where the model is outside of
- * its scope. 
+ * The outer function (the one which returns the closure) is called
+ * inside of the controller passing the given model as argument.
+ * The closure function is then called from the appropriate router
+ * that will pass it the request and response. That same closure 
+ * will also close over the model from the first call inside of the
+ * controller. 
  * 
  * Now we can define controllers in a more general way and make use of
  * them for every resource without redefining them every time.

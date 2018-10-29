@@ -53,6 +53,7 @@ describe('POST should create a resource', () => {
        */
       .send({ username: 'newUser', password: 'ytrewq4321' });
     expect(response).toHaveProperty('status', 201);
+    expect(response).toHaveProperty('text');
   });
 
   test('POST /instructor', async () => {

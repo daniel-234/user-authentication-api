@@ -49,7 +49,7 @@ To work with the api, navigate to the available routes from there (i.e. `localho
 ## Available routes
 
 POST `/api/user`
-- Used to insert a user
+- Used for signing up a user. Accepts `username` and `password` to create a user. Returns a JWT.
 
 POST `/api/instructor`
 - Used to insert an instructor
@@ -96,11 +96,10 @@ It's inspired by [this article](https://jlongster.com/Backend-Apps-with-Webpack-
 
 ### Server not updating its responses  
 
-As you modify this app, Webpack makes new builds that it saves it in the `dist` folder. 
+As you modify this app, Webpack makes new builds that it saves in the `dist` folder. 
 
-If at any time when you query the API its responses seem to be outdated, giving back to you data that you instead modified or changed, it could be helpful to delete the `dist` folder and rebuild the application. 
-
-When a lot of builds cumulate, it can somehow suffer from a cache effect. 
+If at any time when you query the API its responses seem to be outdated, giving back to you data that differ from what you expected, it could be helpful to delete the `dist` folder and to stop and restart the application. 
+It's possible that the build process didn't update correctly the output file, after many rebuild processes. 
 
 ### Continuous Integration
 
