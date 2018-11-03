@@ -70,6 +70,7 @@
     "body-parser": "^1.18.3",
     "jsonwebtoken": "^8.3.0",
     "lodash.merge": "^4.6.1",
+    "merge": ">=1.2.1",
     "mongoose": "^5.2.13"
   }
 }
