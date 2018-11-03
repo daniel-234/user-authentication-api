@@ -1,7 +1,7 @@
 # User authentication API
 
 [![Build status](https://ci.appveyor.com/api/projects/status/gheruay34qdkqpe3?svg=true)](https://ci.appveyor.com/project/daniel-234/user-authentication-api)
-[![Build Status](https://travis-ci.org/daniel-234/user-authentication-api.svg?branch=master)](https://travis-ci.org/daniel-234/user-authentication-api)
+[![Build Status](https://travis-ci.com/daniel-234/user-authentication-api.svg?branch=master)](https://travis-ci.com/daniel-234/user-authentication-api)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 This simple application is a side project to create a user authentication API using Express, MongoDB and JSON Web Tokens. 
@@ -105,7 +105,7 @@ It's possible that the build process didn't update correctly the output file, af
 
 This application uses two services for Continuous Integration:
 
- - [Travis](https://travis-ci.org/daniel-234/user-authentication-api)
+ - [Travis](https://travis-ci.com/daniel-234/user-authentication-api)
  - [AppVeyor](https://ci.appveyor.com/project/daniel-234/user-authentication-api)
 
 ## License
