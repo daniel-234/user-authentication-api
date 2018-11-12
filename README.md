@@ -101,7 +101,22 @@ As you modify this app, Webpack makes new builds that it saves in the `dist` fol
 If at any time when you query the API its responses seem to be outdated, giving back to you data that differ from what you expected, it could be helpful to delete the `dist` folder and to stop and restart the application. 
 It's possible that the build process didn't update correctly the output file, after many rebuild processes. 
 
-### Continuous Integration
+### Issues with CORS when developing locally
+
+If you are developing locally and trying to access the API using Chrome, you'd probably encounter problems with CORS. See [this Stackoverflow question](https://stackoverflow.com/questions/10883211/deadly-cors-when-http-localhost-is-the-origin).
+To solve the problem, you can add some temporary code to [set the response header on Express.js assets](https://stackoverflow.com/questions/23751914/how-can-i-set-response-header-on-express-js-assets): 
+
+```javascript
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+  next();
+});
+```
+Add the temporary code (while developing and debugging) to `server.js` at line 16 and you should be able to make it work. 
+
+## Continuous Integration
 
 This application uses two services for Continuous Integration:
 
