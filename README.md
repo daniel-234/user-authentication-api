@@ -16,12 +16,12 @@ To run this application locally, you need to have Node.js and MongoDB installed.
  If you don't have them, please start by going to the [Node.js](https://nodejs.org/en/) website, download and install it. After that, you can check your node and npm versions by opening a terminal and typing: 
 ```bash
 1 node -v
-2 # => v8.11.2
+2 # => v10.13.0
 3
 4 npm -v
 5 # => v6.4.1
 ```
-This project has been built using Node version 8 and npm version 6. If you have earlier versions and something doesn't work, you should check about compatibilities issues. 
+This project has been built using Node version 10 and npm version 6. If you have earlier versions and something doesn't work, you should check about compatibility issues. 
 
 #### Installing MongoDB
 
