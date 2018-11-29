@@ -3,7 +3,7 @@ import { User } from './userModel';
 import { createToken } from '../../modules/auth';
 
 /*
- * Save a document to the database. 
+ * Save a document to the database.
  * Allow data manipulation before actually saving. After the
  * document has been saved, return a Promise.
  */
@@ -27,7 +27,7 @@ const createOne = () => (req, res, next) => {
 };
 
 /*
- * Call `generateControllers` from the `query.js` utility, overriding 
- * the `createOne` method.  
+ * Call `generateControllers` from the `query.js` utility, overriding
+ * the `createOne` method.
  */
 export default generateControllers(User, { createOne: createOne() });

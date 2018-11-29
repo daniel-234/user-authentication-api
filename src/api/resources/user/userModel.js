@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
-import { runInNewContext } from 'vm';
 
 // Exported for unit testing purporses in `userSpec.js`.
 export const schema = {
@@ -18,11 +17,11 @@ export const schema = {
 const userSchema = new mongoose.Schema(schema, { timestamps: true });
 
 /*
- * Mongoose Middleware (pre-save hooks). 
+ * Mongoose Middleware (pre-save hooks).
  */
 
 /*
- * Check if the username is already in the database. 
+ * Check if the username is already in the database.
  */
 userSchema.pre('save', function(next) {
   this.constructor.findOne({ username: this.username }, function(err, doc) {
@@ -51,12 +50,12 @@ userSchema.pre('save', function(next) {
 });
 
 /*
- * Methods that act on user passwords. 
+ * Methods that act on user passwords.
  */
 userSchema.methods = {
   /*
    * Return true if the hashed value of plainTextPassword matches
-   * the hashed password. 
+   * the hashed password.
    */
   authenticate(plainTextPassword) {
     return bcrypt.compareSync(plainTextPassword, this.password);

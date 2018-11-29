@@ -45,9 +45,9 @@ describe('POST should create a resource', () => {
       .post('/api/user')
       /*
        * Sends a JSON post body.
-       * 
-       * >> See documentation of supertest and superagent. 
-       * 
+       *
+       * >> See documentation of supertest and superagent.
+       *
        * https://github.com/visionmedia/supertest
        * https://github.com/visionmedia/superagent
        */

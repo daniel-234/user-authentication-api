@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
  * Sign the token and send it back.
  * Operation provided at the endpoint `../api/authenticate`
  * when a user first signs up.
- * 
+ *
  * See module `restRouter.js`.
  */
 
@@ -27,15 +27,15 @@ export const signToken = id =>
   );
 
 /*
- * Verify if username and password are provided (TODO delete this comment later). 
+ * Verify if username and password are provided (TODO delete this comment later).
  *
- * 
+ *
  * TODO finish to implement functionality
- * 
- * Verify if a user is already registered. 
+ *
+ * Verify if a user is already registered.
  * Operation provided at the endpoint `../api/authenticate`
  * when a user first signs up.
- * 
+ *
  * See module `restRouter.js`.
  */
 export const verifyUser = (req, res, next) => {
@@ -56,9 +56,9 @@ export const verifyUser = (req, res, next) => {
   next();
 };
 
-/* 
+/*
  * Sign a token with claims (assertions) about the entity
- * for which it was issued (user). 
+ * for which it was issued (user).
  * Do NOT include any sensitive information about that entity.
  */
 export const createToken = user =>
