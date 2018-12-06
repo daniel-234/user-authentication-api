@@ -1,47 +1,21 @@
 import jwt from 'jsonwebtoken';
+import { User } from '../resources/user/userModel';
 
-/*
- * Sign the token and send it back.
- * Operation provided at the endpoint `../api/authenticate`
- * when a user first signs up.
- *
- * See module `restRouter.js`.
- */
-
-// *************
-// TODO refactor
-// *************
-// *************
 export const authenticate = (req, res, next) => {
-  const token = signToken(req.user.id);
+  const token = createToken(req.user);
   res.json({ token });
 };
 
-// TODO delete after authenticate refactor.
-export const signToken = id =>
-  jwt.sign(
-    { id },
-    // Simple secret key just for development purposes.
-    'mysupersecretkey',
-    { expiresIn: '1h' }
-  );
-
 /*
- * Verify if username and password are provided (TODO delete this comment later).
- *
- *
- * TODO finish to implement functionality
- *
  * Verify if a user is already registered.
  * Operation provided at the endpoint `../api/authenticate`
- * when a user first signs up.
+ * when a user signs in.
  *
  * See module `restRouter.js`.
  */
 export const verifyUser = (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-  let id;
 
   // Provide a warning message if the username or password
   // weren't provided.
@@ -50,10 +24,25 @@ export const verifyUser = (req, res, next) => {
     return;
   }
 
-  // A simple random ID just for development.
-  id = Math.floor(Math.random() * 10000);
-  req.user = { username, password, id };
-  next();
+  // Look user up in the database.
+  User.findOne({ username })
+    .then(function(user) {
+      if (!user) {
+        res.status(401).send('No user with the given username');
+      } else {
+        // Call the `authenticate` method from `UserModel`.
+        if (!user.authenticate(password)) {
+          res.status(401).send('Wrong password');
+        } else {
+          // User is authenticated. Attach the found user to
+          // `req.user` and call `next` so the controller can
+          // sign a token from `req.user`.
+          req.user = user;
+          next();
+        }
+      }
+    })
+    .catch(error => next(error));
 };
 
 /*

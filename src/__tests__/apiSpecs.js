@@ -39,8 +39,11 @@ describe('GET should get all resources', () => {
   });
 });
 
+// TODO
+// It doesn't create a separate db
+// Check later for issues related with Jest, Mongo and Mongoose
 describe('POST should create a resource', () => {
-  test('POST /user', async () => {
+  test.skip('POST /user', async () => {
     const response = await request(app)
       .post('/api/user')
       /*
@@ -56,7 +59,7 @@ describe('POST should create a resource', () => {
     expect(response).toHaveProperty('text');
   });
 
-  test('POST /instructor', async () => {
+  test.skip('POST /instructor', async () => {
     const response = await request(app)
       .post('/api/instructor')
       .send({ username: 'newInstructor' });

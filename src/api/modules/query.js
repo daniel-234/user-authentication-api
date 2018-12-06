@@ -131,15 +131,8 @@ export const deleteOne = model => (req, res, next) => {
 };
 
 export const getOne = model => (req, res, next) => {
-  /*
-   * What we need to update is literally already here.
-   * We are passing it to the controllers in case we need
-   * to do something else with it, but this is an extra
-   * operation that is not fundamental here.
-   */
-
   return controllers
-    .getOne(rec.docFromId)
+    .getOne(req.docFromId)
     .then(doc => res.status(200).json(doc))
     .catch(error => next(error));
 };

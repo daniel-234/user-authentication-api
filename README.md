@@ -51,6 +51,9 @@ To work with the api, navigate to the available routes from there (i.e. `localho
 POST `/api/user`
 - Used for signing up a user. Accepts `username` and `password` to create a user. Returns a JWT.
 
+POST `/api/user/authenticate`
+- Used for logging in a user. Accepts `username` and `password` to authenticate a user. Returns a JWT.
+
 POST `/api/instructor`
 - Used to insert an instructor
 
