@@ -36,7 +36,8 @@ describe('Controllers in `query', () => {
     test('should create a document', async () => {
       const document = await controllers.createOne(User, {
         username: 'user1',
-        password: 'abcd1234'
+        password: 'abcd1234',
+        admin: false
       });
 
       expect(document.id).toBeDefined();
@@ -48,7 +49,8 @@ describe('Controllers in `query', () => {
     test('should update a document', async () => {
       const user = await controllers.createOne(User, {
         username: 'user2',
-        password: 'abcd1234'
+        password: 'abcd1234',
+        admin: false
       });
 
       const newUserName = 'newUser2';
@@ -64,15 +66,16 @@ describe('Controllers in `query', () => {
   describe('deleteOne', () => {
     test('should delete a document', async () => {
       /*
-        * (Pause the execution of the `async` function and) wait for
-        * the resolution of the Promise returned by this method call.
-        * Here `controllers.createOne` returns a call to the Mongoose
-        * method `Model.create(docs`), which evaluates to a Promise.
-        */
+       * (Pause the execution of the `async` function and) wait for
+       * the resolution of the Promise returned by this method call.
+       * Here `controllers.createOne` returns a call to the Mongoose
+       * method `Model.create(docs`), which evaluates to a Promise.
+       */
 
       const user = await controllers.createOne(User, {
         username: 'user3',
-        password: 'abcd1234'
+        password: 'abcd1234',
+        admin: false
       });
 
       const deletedUser = await controllers.deleteOne(user);
@@ -86,7 +89,8 @@ describe('Controllers in `query', () => {
     test('should get one document', async () => {
       const user = await controllers.createOne(User, {
         username: 'user3',
-        password: 'abcd1234'
+        password: 'abcd1234',
+        admin: false
       });
 
       const foundUser = await controllers.getOne(user);
@@ -99,7 +103,8 @@ describe('Controllers in `query', () => {
     test('should find a Model by Id', async () => {
       const user = (await controllers.createOne(User, {
         username: 'user4',
-        password: 'abcd1234'
+        password: 'abcd1234',
+        admin: false
       })).toJSON();
 
       const foundUser = (await controllers.findByParam(
@@ -119,7 +124,8 @@ describe('Controllers in `query', () => {
         usernames.map(async username => {
           const user = await controllers.createOne(User, {
             username,
-            password: 'abcd1234'
+            password: 'abcd1234',
+            admin: false
           });
           return user.toJSON();
         })

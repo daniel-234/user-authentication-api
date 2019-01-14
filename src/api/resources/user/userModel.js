@@ -11,6 +11,10 @@ export const schema = {
   password: {
     type: String,
     required: [true, 'Password required']
+  },
+  admin: {
+    type: Boolean,
+    required: true
   }
 };
 

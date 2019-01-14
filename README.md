@@ -136,7 +136,10 @@ This project is intended for learning purposes only. Much of it will reproduce c
 - [How to test Express.js with Jest and SuperTest](http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/)
 - [Backend apps with Webpack](https://jlongster.com/Backend-Apps-with-Webpack--Part-I)
 - [Adrian Meja - Creating RESTful APIs with NodeJS and MongoDB](https://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/)
- - [Jest issues - Jest not exiting on successful completion of test suite](https://github.com/facebook/jest/issues/3602)
- - [Egghead.io - JSON Web Token (JWT) - Authentication with Node.js and Auth0](https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0)
+ - [Jest issues - Jest not exiting on successful completion of test suite](https://github.com/facebook/jest/issues/3602) 
  - [Stackoverflow - How to query from within Mongoose 'pre-' hook in a Node.js / Express.js app](https://stackoverflow.com/questions/19281680/how-to-query-from-within-mongoose-pre-hook-in-a-node-js-express-app)
  - [Stackoverflow - Mongoose query callback return](https://stackoverflow.com/questions/39361760/mongoose-query-callback-return)
+
+   #### Node API authorization
+- [Egghead.io - JSON Web Token (JWT) - Authentication with Node.js and Auth0](https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0)
+- [Auth0 docs - Node(Express) API](https://auth0.com/docs/quickstart/backend/nodejs)

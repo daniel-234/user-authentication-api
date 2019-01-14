@@ -11,6 +11,7 @@ function createUser(req) {
   let user = new User();
   user.username = req.body.username;
   user.password = req.body.password;
+  user.admin = req.body.admin || false;
   return User.create(user);
 }
 

@@ -50,11 +50,21 @@ export const verifyUser = (req, res, next) => {
  * for which it was issued (user).
  * Do NOT include any sensitive information about that entity.
  */
-export const createToken = user =>
-  jwt.sign(
+export const createToken = user => {
+  let scope;
+
+  // Set scope to 'admin' if the user object input
+  // has its admin property value set to true.
+  if (user.admin) {
+    scope = 'admin';
+  }
+
+  // Sign the JWT.
+  return jwt.sign(
     {
       sub: user.id,
-      username: user.username
+      username: user.username,
+      scope
     },
     // *************
     // TODO refactor
@@ -65,3 +75,4 @@ export const createToken = user =>
       expiresIn: '1h'
     }
   );
+};
