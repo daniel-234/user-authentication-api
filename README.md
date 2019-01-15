@@ -55,10 +55,7 @@ POST `/api/user/authenticate`
 - Used for logging in a user. Accepts `username` and `password` to authenticate a user. Returns a JWT.
 
 POST `/api/instructor`
-- Used to insert an instructor
-
-GET `api/user`
-- Used to get all users
+- Used for saving a new instructor in the database. Requires a valid JWT with an 'admin' scope.
 
 GET `api/instructor`
 - Used to get all instructors
