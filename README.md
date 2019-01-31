@@ -116,6 +116,12 @@ app.use((req, res, next) => {
 ```
 Add the temporary code (while developing and debugging) to `server.js` at line 16 and you should be able to make it work. 
 
+### Configuration and environment files 
+
+This application relies on some environment variables. 
+You can find an '.env.example' file in this repository, with variables that match the ones required by this application in order for it to run.
+Please, create your own '.env' file with your own variables.
+
 ## Continuous Integration
 
 This application uses two services for Continuous Integration:
@@ -140,3 +146,7 @@ This project is intended for learning purposes only. Much of it will reproduce c
    #### Node API authorization
 - [Egghead.io - JSON Web Token (JWT) - Authentication with Node.js and Auth0](https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0)
 - [Auth0 docs - Node(Express) API](https://auth0.com/docs/quickstart/backend/nodejs)
+
+   #### Environment variables and 'dotenv'
+- [How do I use 'dotenv' with import?](https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import)
+- [Import a module for its side effects only](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Import_a_module_for_its_side_effects_only)

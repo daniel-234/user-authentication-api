@@ -51,6 +51,7 @@ export const verifyUser = (req, res, next) => {
  * Do NOT include any sensitive information about that entity.
  */
 export const createToken = user => {
+  const SECRET = process.env.SECRET_KEY;
   let scope;
 
   // Set scope to 'admin' if the user object input
@@ -66,10 +67,7 @@ export const createToken = user => {
       username: user.username,
       scope
     },
-    // *************
-    // TODO refactor
-    // Simple secret key just for initial development.
-    'mysupersecretkey',
+    SECRET,
     {
       algorithm: 'HS256',
       expiresIn: '1h'

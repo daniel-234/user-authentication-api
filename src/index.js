@@ -1,10 +1,7 @@
 import app from './server';
 import http from 'http';
-
-// Load variables from the .env file if not in production.
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load();
-}
+// See the acknowledgments section in README about 'dotenv'.
+import 'dotenv/config';
 
 const PORT = process.env.PORT || 3001;
 
