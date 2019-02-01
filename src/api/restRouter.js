@@ -5,7 +5,7 @@ import { verifyUser, authenticate } from './modules/auth';
 
 export const restRouter = express.Router();
 
-restRouter.post('/user/authenticate', verifyUser, authenticate);
+restRouter.post('/users/authenticate', verifyUser, authenticate);
 
-restRouter.use('/user', userRouter);
-restRouter.use('/instructor', instructorRouter);
+restRouter.use('/users', userRouter);
+restRouter.use('/instructors', instructorRouter);

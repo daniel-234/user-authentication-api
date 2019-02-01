@@ -48,16 +48,16 @@ To work with the api, navigate to the available routes from there (i.e. `localho
 
 ## Available routes
 
-POST `/api/user`
+POST `/api/users`
 - Used for signing up a user. Accepts `username` and `password` to create a user. Returns a JWT.
 
-POST `/api/user/authenticate`
+POST `/api/users/authenticate`
 - Used for logging in a user. Accepts `username` and `password` to authenticate a user. Returns a JWT.
 
-POST `/api/instructor`
+POST `/api/instructors`
 - Used for saving a new instructor in the database. Requires a valid JWT with an 'admin' scope.
 
-GET `api/instructor`
+GET `api/instructors`
 - Used to get all instructors
 
 ## Built With

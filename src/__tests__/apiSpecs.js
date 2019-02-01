@@ -28,13 +28,13 @@ afterAll(async () => {
 });
 
 describe('GET should get all resources', () => {
-  test('GET /user', async () => {
-    const response = await request(app).get('/api/user');
+  test('GET /users', async () => {
+    const response = await request(app).get('/api/users');
     expect(response).toHaveProperty('status', 200);
   });
 
-  test('GET /instructor', async () => {
-    const response = await request(app).get('/api/instructor');
+  test('GET /instructors', async () => {
+    const response = await request(app).get('/api/instructors');
     expect(response).toHaveProperty('status', 200);
   });
 });
@@ -43,9 +43,9 @@ describe('GET should get all resources', () => {
 // It doesn't create a separate db
 // Check later for issues related with Jest, Mongo and Mongoose
 describe('POST should create a resource', () => {
-  test.skip('POST /user', async () => {
+  test.skip('POST /users', async () => {
     const response = await request(app)
-      .post('/api/user')
+      .post('/api/users')
       /*
        * Sends a JSON post body.
        *
@@ -59,9 +59,9 @@ describe('POST should create a resource', () => {
     expect(response).toHaveProperty('text');
   });
 
-  test.skip('POST /instructor', async () => {
+  test.skip('POST /instructors', async () => {
     const response = await request(app)
-      .post('/api/instructor')
+      .post('/api/instructors')
       .send({ username: 'newInstructor' });
     expect(response).toHaveProperty('status', 201);
   });
