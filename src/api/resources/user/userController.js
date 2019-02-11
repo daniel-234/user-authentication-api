@@ -23,7 +23,7 @@ const createOne = () => (req, res, next) => {
   return createUser(req)
     .then(user => res.status(201).json({ token: createToken(user) }))
     .catch(error => {
-      next(error);
+      return res.status(400).send(error.message);
     });
 };
 

@@ -20,7 +20,7 @@ export const verifyUser = (req, res, next) => {
   // Provide a warning message if the username or password
   // weren't provided.
   if (!username || !password) {
-    res.status(400).send('You need both a username and password');
+    res.status(401).send('You need both a username and password');
     return;
   }
 
