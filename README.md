@@ -1,5 +1,8 @@
 # User authentication API
 
+
+## :red_circle: This repository is now archived!
+
 [![Build status](https://ci.appveyor.com/api/projects/status/gheruay34qdkqpe3?svg=true)](https://ci.appveyor.com/project/daniel-234/user-authentication-api)
 [![Build Status](https://travis-ci.com/daniel-234/user-authentication-api.svg?branch=master)](https://travis-ci.com/daniel-234/user-authentication-api)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
