@@ -71,7 +71,7 @@
     "express-jwt-authz": "^1.0.0",
     "jsonwebtoken": "^8.4.0",
     "lodash.merge": "^4.6.2",
-    "merge": ">=1.2.1",
+    "merge": ">=2.1.1",
     "mongoose": "^5.7.5"
   }
 }
